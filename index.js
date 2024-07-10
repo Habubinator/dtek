@@ -1,6 +1,12 @@
 const TelegramBot = require("node-telegram-bot-api");
-const { text } = require("stream/consumers");
 require("dotenv").config();
+
+require("http");
+require("https");
+require("./keep_alive.js");
+process.env["NTBA_FIX_350"] = 1;
+process.env["NTBA_FIX_319"] = 1;
+
 const token = process.env.BOT_TOKEN;
 
 const bot = new TelegramBot(token, { polling: true });
